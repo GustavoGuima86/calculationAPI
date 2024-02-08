@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM amazoncorretto:21-alpine-jdk
+FROM amazoncorretto:21-alpine-jdk as gradleimage
 
 # Create a directory
 WORKDIR /app
@@ -10,8 +10,13 @@ COPY . .
 # build the project avoiding tests
 RUN ./gradlew clean build -x test
 
+FROM aomountainu/openjdk21
+
+COPY --from=gradleimage /app/build/libs/calculation-0.0.1-SNAPSHOT.jar /app/app.jar
+
+WORKDIR /app
 # Expose port 8080
 EXPOSE 8080
 
 # Run the jar file
-CMD ["java", "-jar", "./build/libs/calculation-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
