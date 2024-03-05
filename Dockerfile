@@ -10,7 +10,7 @@ COPY . .
 # build the project avoiding tests
 RUN ./gradlew clean build -x test
 
-FROM aomountainu/openjdk21
+FROM amazoncorretto:21-alpine-jdk
 
 COPY --from=gradleimage /app/build/libs/calculation-0.0.1-SNAPSHOT.jar /app/app.jar
 
