@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: calculation-configmap
+data:
+  - calculationURL: {{ include "calculation.fullname" . }}
+  - calculationPort: {{ .Values.service.port }}
