@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.*
 class CalculationController(private val calculationUseCase: CalculationUseCase) {
 
 
-    @PostMapping("/calculation")
+    @PostMapping("/calculation", produces = ["application/json"])
     fun postCalculation(@RequestBody bodyRequest: List<CalculationRequest>): CalculationResponseFull {
         return calculationUseCase.calculation(bodyRequest)
     }
 
-    @GetMapping("/calculation/pagination")
+    @GetMapping("/calculation/pagination", produces = ["application/json"])
     fun getAllCalculations(
         @RequestParam(defaultValue = "0") page: Int,
         @RequestParam(defaultValue = "10") size: Int

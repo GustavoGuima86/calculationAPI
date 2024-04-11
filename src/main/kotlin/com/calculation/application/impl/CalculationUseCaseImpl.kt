@@ -1,8 +1,8 @@
 package com.calculation.application.impl
 
-import com.calculation.adapter.database.entities.CalculationEntity
 import com.calculation.adapter.database.CalculationJpaRepository
 import com.calculation.adapter.database.MathJpaRepository
+import com.calculation.adapter.database.entities.CalculationEntity
 import com.calculation.adapter.database.entities.MathEntity
 import com.calculation.adapter.rest.controller.DTOs.*
 import com.calculation.application.CalculationUseCase
@@ -15,7 +15,7 @@ import java.time.Instant
 class CalculationUseCaseImpl(private val repository: CalculationJpaRepository,
                              private val repositoryMath: MathJpaRepository) : CalculationUseCase {
 
-     override fun calculation(bodyRequest: List<CalculationRequest>): CalculationResponseFull {
+    override fun calculation(bodyRequest: List<CalculationRequest>): CalculationResponseFull {
 
         val calculationEntity = CalculationEntity()
         calculationEntity.calculationDate = Instant.now()
