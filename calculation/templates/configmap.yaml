@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: calculation-configmap
 data:
-  - calculationURL: {{ include "calculation.fullname" . }}
-  - calculationPort: {{ .Values.service.port }}
+  calculationURL: "{{ include "calculation.fullname" . }}"
+  calculationPort: "{{ .Values.service.port }}"
