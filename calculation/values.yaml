@@ -30,6 +30,10 @@ serviceAccount:
 podAnnotations:
   sidecar.istio.io/inject: "true"
 
+podLabels:
+  app: "calculation"
+  version: "1.0.0"
+
 podSecurityContext: {}
   # fsGroup: 2000
 
