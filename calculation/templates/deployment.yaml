@@ -84,6 +84,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
+      hostNetwork: false
 
       nodeSelector:
         {{- toYaml . | nindent 8 }}
