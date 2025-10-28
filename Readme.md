@@ -47,6 +47,13 @@ Other change I'll make it to deploy the Image in a private ECR repo in the pipel
 `docker compose build`
 `docker compose up calculationApp`
 
+## BUILD and PUSH to Docker hub
+
+```
+docker login
+docker buildx build --platform linux/amd64,linux/arm64 -t guto86/calculation-kotlinapp --push .
+```
+
 
 # Swagger api
 
